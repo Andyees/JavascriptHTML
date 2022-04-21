@@ -1,11 +1,33 @@
 const button_Submit=document.getElementById("button_submit")
 const InputName=document.getElementById("input_name")
 const InputLastName=document.getElementById("input_lastname")
+const InputCedula=document.getElementById("input_cedula")
 const NameView=document.getElementById("nombre_view")
 const LastNameView=document.getElementById("apellido_view")
 const ContainerName=document.getElementById("container_name")
 button_Submit.addEventListener("click",twoFunctions,false)
 const elementImg=document.getElementById("img-animal")
+formulario=document.getElementById("Form")
+containerColor=document.getElementById("container-color")
+
+window.addEventListener("load",funcionCargar(),false)
+
+function funcionCargar(){
+
+    for (let index = 0; index < localStorage.length; index++) {
+        let clave=localStorage.key(index)
+        let persona= JSON.parse(localStorage.getItem(clave))
+        var contenido=' <div class="persona"> <p  class="p-form" id="nombre_view">'+persona.nombre+' </p> <p class="p-form" id ="apellido_view">'+persona.apellido+'</p> </div>'
+        ContainerName.innerHTML+= contenido
+       
+        
+    }
+}
+
+document.getElementById("morado").addEventListener("click",Cambiarmorado,false)
+document.getElementById("amarillo").addEventListener("click",CambiarAmarillo,false)
+document.getElementById("rojo").addEventListener("click",CambiarRojo,false)
+
 
 function ingresarText(){
 
@@ -17,7 +39,8 @@ function ingresarText(){
 
 }
 
-function twoFunctions(){
+function twoFunctions(ev){
+    ev.preventDefault()
     ingresarHTML()
     cambiarImagen()
 
@@ -26,8 +49,14 @@ function twoFunctions(){
 function ingresarHTML(){
     const nombre= InputName.value
     const apellido=InputLastName.value
+    const cedula= InputCedula.value
     var contenido=' <div class="persona"> <p  class="p-form" id="nombre_view">'+nombre+' </p> <p class="p-form" id ="apellido_view">'+apellido+'</p> </div>'
     ContainerName.innerHTML+= contenido
+    const persona ={nombre:nombre, apellido: apellido, cedula:cedula}
+
+
+    localStorage.setItem(cedula,JSON.stringify(persona))
+
 
 }
 
@@ -48,6 +77,25 @@ function cambiarImagen(){
         elementImg.setAttribute("src",imgText2)
     }
 
+
+}
+
+function Cambiarmorado(){
+containerColor.classList.toggle('morado')
+containerColor.classList.remove('rojo')
+containerColor.classList.remove('amarillo')
+
+
+}
+function CambiarAmarillo(){
+    containerColor.classList.toggle('amarillo')
+    containerColor.classList.remove('rojo')
+    containerColor.classList.remove('morado')
+
+}function CambiarRojo(){
+containerColor.classList.toggle('rojo')
+containerColor.classList.remove('morado')
+containerColor.classList.remove('amarillo')
 
 }
 

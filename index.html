@@ -11,18 +11,31 @@
 <body>
     
 
-<form action="">
+<form id="Form" action="">
 <label for="">Nombre</label>
 
-<input id="input_name" class="Input-form" type="text" placeholder="Ingrese su nombre porfavor">
+<input id="input_name" class="Input-form" type="text" placeholder="Ingrese su nombre porfavor" required>
 
 <label for="">Apellido</label>
 
-<input id="input_lastname" class="Input-form" type="text" placeholder="Ingrese su Apellido porfavor">
+<input id="input_lastname" class="Input-form" type="text" placeholder="Ingrese su Apellido porfavor" required>
+<label for="">Cedula</label>
+<input id="input_cedula" class="Input-form" type="number" placeholder="Ingrese su Cedula" required>
+<input id="button_submit" type="submit" class="button-form" value="Enviar">
 
-<button id="button_submit" class="button-form" type="button">Submit</button>
 
 </form>
+
+<button id="rojo" class="button-form inline">cambiar a color rojo</button>
+<button id="amarillo" class="button-form inline">cambiar a color amarillo</button>
+<button id="morado" class="button-form inline">cambiar a color morado</button>
+
+<div  id= "container-color"class="container" >
+
+</div>
+
+
+
 
 <div id="container_name" class="nombres-container">
 

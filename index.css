@@ -44,3 +44,24 @@
     background-color: darkgrey;
     border-style: 1px solid black;
 }
+.morado{
+    background-color: blueviolet;
+    color: azure;
+
+}
+.amarillo{
+    background-color: yellow;
+    color: black;
+}
+.rojo{
+    background-color: red;
+    color:white
+}
+.inline{
+    display: inline;
+}
+#container-color{
+    height: 300px;
+    width: 400px;
+    border-style: groove;
+}
